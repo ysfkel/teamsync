@@ -1,14 +1,32 @@
-module.exports=function(app){
+
+
+class AccountService{
     
-   app.factory('accountService',accountService);
+    constructor($http){
+        'ngInject'
+        this.service=$http;
+    }
+    
+    save(entity){
+        return this.service.post('/api/v1/register',entity);
+    }
     
 }
 
+export default AccountService;
 
-accountService.$inject=['$resource'];
 
-function accountService($resource){
+// module.exports=function(app){
     
-    return $resource('/api/v1/register/:id',{id:'@id'},{update:{method:'PUT'}} );
+//    app.factory('accountService',accountService);
+    
+// }
 
-}
+
+// accountService.$inject=['$resource'];
+
+// function accountService($resource){
+    
+//     return $resource('/api/v1/register/:id',{id:'@id'},{update:{method:'PUT'}} );
+
+// }

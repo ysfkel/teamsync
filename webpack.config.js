@@ -1,4 +1,5 @@
 var webpack=require('webpack');
+
 module.exports={
     context:__dirname+'/app',
   // entry:'./index.js',
@@ -16,18 +17,28 @@ module.exports={
             {
                 test:/\.html$/,
                 loader:'raw'
+            },
+            {
+              test:/\.css$/,
+              loader:'style!css',
+              exclude:/(node_modules|bower_components)/  
+            },
+            
+            {
+                test:/\.jsx?$/,
+                loader:'babel',
+                exclude:/(node_modules|bower_components)/,
+                query:{
+                    presets:['es2015']
+                }
+            },
+            {
+                test: /src.*\.js$/, 
+                  exclude:/(node_modules|bower_components)/,
+                loaders: ['ng-annotate', 'babel-loader']
             }
         ]
-        // loaders:[
-        //      { 
-        //          test:/\.js$/,
-        //          exclude:/node_modules/,
-        //          loader:'babel',
-        //          query:{
-        //              presets:['es2015']
-        //          }
-        //      }
-        // ]
+   
     },
     resolve:{
         modulesDirectories:['node_modules','src'],
