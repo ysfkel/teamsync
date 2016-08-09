@@ -6,7 +6,6 @@ import Repository from '../../repo/repository.generic';
          this.accountService=accountService;
         var repo=new Repository(accountService);
         this.name='YUSUF KELO'
-         console.log('i am profile')
      }
  }
 

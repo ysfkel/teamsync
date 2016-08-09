@@ -17,9 +17,7 @@ class AuthCtr{
     
     submitForm(){
         var repo=new Repository(this.userService);
-        console.log('formsub',repo)
         repo.authenticate('login')
-       // this.isSubmitting=true;
     }
     
     setView(stateName){
